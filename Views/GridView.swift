@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GridView: UIView {
+class GridView: SuperView {
 
     /*
     // Only override draw() if you perform custom drawing.
