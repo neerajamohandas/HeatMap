@@ -15,22 +15,26 @@ class HomeVC: UIViewController {
     @IBOutlet weak var btn_S: UIButton!
     @IBOutlet weak var btn_LU: UIButton!
     @IBOutlet weak var searchBar_symbol: UISearchBar!
-    @IBOutlet weak var view_grid: UIView!
-
+    @IBOutlet var view_grid_data: GridView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
         // Set corner radius of buttons
         btn_ALL.layer.cornerRadius = btn_ALL.frame.width * 0.2
+        btn_ALL.layer.masksToBounds = true
         btn_L.layer.cornerRadius = btn_L.frame.width * 0.2
+        btn_L.layer.masksToBounds = true
         btn_SC.layer.cornerRadius = btn_SC.frame.width * 0.2
+        btn_SC.layer.masksToBounds = true
         btn_S.layer.cornerRadius = btn_S.frame.width * 0.2
+        btn_S.layer.masksToBounds = true
         btn_LU.layer.cornerRadius = btn_LU.frame.width * 0.2
-
+        btn_LU.layer.masksToBounds = true
+        
         
     }
- 
-    
 
 }

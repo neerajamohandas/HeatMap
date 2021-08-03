@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GridCVCell" customModule="HeatMap" customModuleProvider="target">
             <connections>
-                <outlet property="lbl_price_change" destination="GfT-d3-R63" id="BlM-2r-hVo"/>
-                <outlet property="lbl_symbol_name" destination="ePr-RK-JVe" id="4X5-En-hz6"/>
+                <outlet property="lbl_price_change" destination="GfT-d3-R63" id="leF-oP-z46"/>
+                <outlet property="lbl_symbol_name" destination="ePr-RK-JVe" id="oFz-db-e7R"/>
                 <outlet property="view_background" destination="kbm-5z-Yii" id="a48-4z-f36"/>
             </connections>
         </placeholder>
