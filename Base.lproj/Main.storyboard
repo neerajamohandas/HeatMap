@@ -1,24 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DTR-u9-Xri">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="HeatMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVh-kY-ber">
+                                <rect key="frame" x="0.0" y="88" width="414" height="139.5"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Search.." translatesAutoresizingMaskIntoConstraints="NO" id="iwr-N2-vkv">
+                                        <rect key="frame" x="20" y="8" width="374" height="55"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" red="0.060864798720000002" green="0.20306363699999999" blue="0.39408069849999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UvN-1D-Ite">
+                                        <rect key="frame" x="20" y="75.5" width="374" height="52"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXq-57-QaD">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="52"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="ALL">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CT7-0T-l0x">
+                                                <rect key="frame" x="77" y="0.0" width="66.5" height="52"/>
+                                                <color key="backgroundColor" name="color_long"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="L">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlZ-Jy-etR">
+                                                <rect key="frame" x="153.5" y="0.0" width="67" height="52"/>
+                                                <color key="backgroundColor" name="color_short_covering"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="SC">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ses-KE-Uf0">
+                                                <rect key="frame" x="230.5" y="0.0" width="66.5" height="52"/>
+                                                <color key="backgroundColor" name="color_short"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="S">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="due-0m-ZMV">
+                                                <rect key="frame" x="307" y="0.0" width="67" height="52"/>
+                                                <color key="backgroundColor" name="color_long_unwinding"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <state key="normal" title="LU">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.069593586030000001" green="0.20731520649999999" blue="0.39000055189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iwr-N2-vkv" secondAttribute="trailing" constant="20" id="0e6-h5-3Gb"/>
+                                    <constraint firstItem="UvN-1D-Ite" firstAttribute="trailing" secondItem="iwr-N2-vkv" secondAttribute="trailing" id="63C-ke-CCM"/>
+                                    <constraint firstItem="iwr-N2-vkv" firstAttribute="height" secondItem="uVh-kY-ber" secondAttribute="height" multiplier="0.4" id="7CK-Cr-YUA"/>
+                                    <constraint firstItem="UvN-1D-Ite" firstAttribute="leading" secondItem="iwr-N2-vkv" secondAttribute="leading" id="I2j-ge-unW"/>
+                                    <constraint firstItem="iwr-N2-vkv" firstAttribute="top" secondItem="uVh-kY-ber" secondAttribute="top" constant="8" id="RCx-Ma-lXG"/>
+                                    <constraint firstAttribute="bottom" secondItem="UvN-1D-Ite" secondAttribute="bottom" constant="12" id="USF-d1-OxM"/>
+                                    <constraint firstItem="UvN-1D-Ite" firstAttribute="top" secondItem="iwr-N2-vkv" secondAttribute="bottom" constant="12" id="fDa-9s-jir"/>
+                                    <constraint firstItem="iwr-N2-vkv" firstAttribute="leading" secondItem="uVh-kY-ber" secondAttribute="leading" constant="20" id="kpW-Js-R8G"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLb-dV-r1a">
+                                <rect key="frame" x="0.0" y="227.5" width="414" height="634.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uVh-kY-ber" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="15V-sd-uca"/>
+                            <constraint firstItem="LLb-dV-r1a" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="50g-jc-Anj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LLb-dV-r1a" secondAttribute="bottom" id="Cha-QU-ENx"/>
+                            <constraint firstItem="LLb-dV-r1a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aLf-UQ-WMv"/>
+                            <constraint firstItem="LLb-dV-r1a" firstAttribute="top" secondItem="uVh-kY-ber" secondAttribute="bottom" id="bdd-He-Glo"/>
+                            <constraint firstItem="uVh-kY-ber" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pIL-dG-60R"/>
+                            <constraint firstItem="uVh-kY-ber" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.18" id="uCO-8h-Ib1"/>
+                            <constraint firstItem="uVh-kY-ber" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zDE-EP-JLZ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0f2-xE-NP8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="682.60869565217399" y="-29.464285714285712"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3GC-6s-NfT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DTR-u9-Xri" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ejo-Fo-WiN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0087000169354616453" green="0.16264945544305134" blue="0.36460175177063603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="31h-KX-fg1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HyX-kA-tSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-226.08695652173915" y="-29.464285714285712"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="color_long">
+            <color red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_long_unwinding">
+            <color red="0.0" green="0.81568627450980391" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_short">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_short_covering">
+            <color red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
