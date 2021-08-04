@@ -11,7 +11,7 @@ protocol gridViewDelegate {
     
 }
 
-class GridView: SuperView,UICollectionViewDelegate,UICollectionViewDataSource {
+class GridView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var view_container: UIView!
     @IBOutlet var collection_view_data: UICollectionView!
@@ -19,10 +19,10 @@ class GridView: SuperView,UICollectionViewDelegate,UICollectionViewDataSource {
     let cell_identifier = "GridCVCell"
     var delegate: gridViewDelegate!
     var dictionary_response = NSDictionary()
-    var all_data = NSMutableArray()
-    var array_sorted = NSMutableArray()
+    var all_data: [Symbol_category] = []
+    var array_sorted: [Symbol_category] = []
     
-    required init(frame: CGRect) {
+    required override init(frame: CGRect) {
         super.init(frame: frame)
         nibSetup()
     }
@@ -42,9 +42,10 @@ class GridView: SuperView,UICollectionViewDelegate,UICollectionViewDataSource {
         self.fetchData_fromAPI()
         
         // register custom cv cell and load it
-        collection_view_data.register(UINib.init(nibName: "GridCVCell", bundle: nil), forCellWithReuseIdentifier: cell_identifier)
+        collection_view_data.register(UINib(nibName: "GridCVCell", bundle: nil), forCellWithReuseIdentifier: cell_identifier)
         collection_view_data.delegate = self
         collection_view_data.dataSource = self
+    
     }
     
     private func loadViewFromNib_() -> UIView {
@@ -53,22 +54,30 @@ class GridView: SuperView,UICollectionViewDelegate,UICollectionViewDataSource {
         let nibView = nib.instantiate(withOwner: self, options: nil).first as! UIView
         return nibView
     }
-    
+
     
     
     //MARK: collection view functions
     
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 5
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5//all_data.count
+        return array_sorted.count
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 50, height: 50)
+//    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collection_view_data.dequeueReusableCell(withReuseIdentifier: cell_identifier, for: indexPath) as! GridCVCell
-        let symbol: Symbol_category = array_sorted[indexPath.row] as! Symbol_category
-        //cell.lbl_symbol_name.text = symbol.symbol
-        //cell.lbl_price_change.text = symbol.price_change_percentage
+        let symbol: Symbol_category = array_sorted[indexPath.item]
+        cell.lbl_symbol_name.text = symbol.symbol
+        cell.lbl_price_change.text = symbol.price_change_percentage
         
         return cell
     }
@@ -87,7 +96,7 @@ class GridView: SuperView,UICollectionViewDelegate,UICollectionViewDataSource {
             if let responseData = data {
                 do{
                     self.dictionary_response = try JSONSerialization.jsonObject(with: responseData, options: .mutableLeaves) as! NSDictionary
-                    //self.getData_fromResponse(response: self.dictionary_response)
+                    self.getData_fromResponse(response: self.dictionary_response)
                 }catch{
                     print("No data found.")
                 }
@@ -141,15 +150,18 @@ class GridView: SuperView,UICollectionViewDelegate,UICollectionViewDataSource {
             symbol_category.open_interest = array_components[2]
             symbol_category.price_change_percentage = array_components[3]
             symbol_category.open_interest_change_percentage = array_components[4]
-            all_data.add(symbol_category)
+            all_data.append(symbol_category)
+            
+            print("Element:- \(symbol_category.symbol)")
+            print("Element:- \(symbol_category.price_change_percentage)")
         }
         }
         print("All data count :\(all_data.count)")
             
-            //Sort Array based on price change percentage
-            let descriptor: NSSortDescriptor = NSSortDescriptor(key: "price_change_percentage", ascending: false)
-        array_sorted = all_data.sortedArray(using: [descriptor]) as! NSMutableArray
+        array_sorted = all_data.sorted{ $0.price_change_percentage > $1.price_change_percentage }
+        
         print(array_sorted)
+        print("Array sorted..\(array_sorted.count)")
         
         
         

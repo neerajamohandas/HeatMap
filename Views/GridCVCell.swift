@@ -2,14 +2,19 @@
 //  GridCVCell.swift
 //  HeatMap
 //
-//  Created by Anand on 03/08/21.
+//  Created by Anand on 04/08/21.
 //
 
 import UIKit
 
 class GridCVCell: UICollectionViewCell {
-    
-    @IBOutlet weak var view_background: UIView!
-    @IBOutlet weak var lbl_symbol_name: UILabel!
-    @IBOutlet weak var lbl_price_change: UILabel!
+
+    @IBOutlet var view_cell_container: UIView!
+    @IBOutlet var lbl_symbol_name: UILabel!
+    @IBOutlet var lbl_price_change: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
 }
